@@ -8,7 +8,7 @@
     <title>Order Cloud</title>
 	<link rel="stylesheet" href="css/bootstrap-451.css" data-group="source" />
 	<link rel="stylesheet" href="css/editor.css" data-group="source" />
-	<link rel="stylesheet" href="css/theme.css" data-group="source" />
+	<link rel="stylesheet" href="css/base.css" data-group="source" />
 	<link rel="stylesheet" href="css/custom.css" data-group="source" />
     <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' />
     <link href='//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
@@ -32,24 +32,49 @@
 </head>
 <!--[if (gte IE 9)|!(IE)]><!-->
 <body ng-cloak ng-class="ng-cloak">
+
 <section>
+
     <section ng-hide="Four51User.isAuthenticated() || isAnon" class="container">
         <login />
     </section>
+
     <section ng-if="Four51User.isAuthenticated()" id="content">
-        <section class="hidden-print">
+
+        <!--TODO: should this be a module?-->
+        <ng-include src="'partials/custom/headerNavigation.html'"></ng-include>
+
+        <section class="hidden-print visible-xs">
+            <hamburgernavigation />
+        </section>
+
+        <section class="hidden-print hidden-xs">
             <navigation />
         </section>
+
+        <!-- carousel is here -->
         <section class="hidden-print">
             <branding />
         </section>
+
         <section class="container-view">
             <ng-view autoscroll />
         </section>
+
         <section class="hidden-print">
             <copyright ng-if="!user.Permissions.contains('UnBrandedSite')" />
         </section>
+
+        <section class="hidden-print">
+            <fixedfooter />
+        </section>
+
     </section>
+
+    <section class="hidden-print">
+        <backtotop offsetbottom="90" offsetright="30" duration="200"></backtotop>
+    </section>
+
 </section>
 
     <!--<script type="text/javascript" src="//dl1d2m8ri9v3j.cloudfront.net/releases/1.2.4/tracker.js" data-customer="bfec7bded14d43a7ace2697594e1369d"></script>-->
@@ -74,6 +99,23 @@
     <script src="lib/angular/plugins/ngAutocomplete.js" data-group="resources"></script>
     <script src="lib/oc/anonRouter.js" data-group="resources"></script>
     <script src="lib/oc/ordercloud-specforms.js" data-group="resources"></script>
+
+    <script src="lib/oc/backToTop.js" data-group="resources"></script>
+    <script src="lib/oc/breadcrumbs.js" data-group="resources"></script>
+    <script src="lib/oc/carousel.js" data-group="resources"></script>
+    <script src="lib/oc/categoryCollapse.js" data-group="resources"></script>
+    <script src="lib/oc/categoryModal.js" data-group="resources"></script>
+    <script src="lib/oc/checkoutItemSummary.js" data-group="resources"></script>
+    <script src="lib/oc/contactModal.js" data-group="resources"></script>
+    <script src="lib/oc/fixedFooter.js" data-group="resources"></script>
+    <script src="lib/oc/hamburgerNavigation.js" data-group="resources"></script>
+    <script src="lib/oc/minicart.js" data-group="resources"></script>
+    <script src="lib/oc/productLightbox.js" data-group="resources"></script>
+    <script src="lib/oc/productMatrix.js" data-group="resources"></script>
+    <script src="lib/oc/productZoom.js" data-group="resources"></script>
+    <script src="lib/oc/sameAsShippingCheckbox.js" data-group="resources"></script>
+    <script src="lib/oc/securityModal.js" data-group="resources"></script>
+    <script src="lib/oc/termsModal.js" data-group="resources"></script>
 
     <script src="//maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 
@@ -164,7 +206,7 @@
     <script src="js/directives/customphonefield.js" data-group="source"></script>
     <script src="js/directives/customfilefield.js" data-group="source"></script>
     <script src="js/directives/approvalrulelist.js" data-group="source"></script>
-    <script src="js/directives/tree.js" data-group="source"></script>
+    <!--<script src="js/directives/tree.js" data-group="source"></script>-->
     <script src="js/directives/addressinput.js" data-group="source"></script>
     <script src="js/directives/reporting.js" data-group="source"></script>
     <script src="js/directives/inlineerror.js" data-group="source"></script>
@@ -189,7 +231,7 @@
     <script src="js/directives/ordertypeselector.js" data-group="source"></script>
     <script src="js/directives/creditcard.js" data-group="source"></script>
     <script src="js/directives/neworder.js" data-group="source"></script>
-    <script src="js/directives/orderbuttons.js" data-group="source"></script>
+    <!--<script src="js/directives/orderbuttons.js" data-group="source"></script>-->
 </body>
 <!-- <![endif]-->
 </html>

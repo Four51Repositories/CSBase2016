@@ -1,7 +1,7 @@
 <section>
     <nav id="451qa_nav_hdr" class="nav">
         <ul>
-            <li class="hidden-sm hidden-xs">
+            <!--<li class="hidden-sm hidden-xs">
                 <span ng-click="toggleNav()"><i class="fa fa-bars" ng-class="{ 'text-info': navStatus.visible }"></i></span>
             </li>
             <li>
@@ -11,7 +11,8 @@
                 <a href="search">
                     <span><i class="fa fa-search text-primary"></i></span>
                 </a>
-            </li>
+            </li>-->
+            <li><breadcrumbs></breadcrumbs></li>
         </ul>
     </nav>
     <div class="row">
@@ -24,7 +25,8 @@
                 </div>
                 <nav class="nav 451qa_sidenav panel-body">
                     <ul>
-                        <categorytree tree='tree' current='currentCategory' />
+                        <!--<categorytree tree='tree' current='currentCategory' />-->
+                        <categorycollapse tree='tree' current='currentCategory'></categorycollapse>
                     </ul>
                 </nav>
             </div>
